@@ -1,0 +1,232 @@
+<html>
+    <!--描述网页信息-->
+    <head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>FreshFresh WKWebView Demo 测试</title>
+        
+        <script>
+         /*进入首页*/
+         function goHome() {
+            var params = {'method': 'ffgohome'};
+            ffbridgesend(params);
+         }
+
+         /*进入分类*/
+         function goCategory() {
+            var params = {'method': 'ffgocategory'};
+            ffbridgesend(params);
+         }
+
+         /*进入团购*/
+         function goGroupOn() {
+            var params = {'method': 'ffgogroupon'};
+            ffbridgesend(params);
+         }
+
+         /*进入我的两鲜*/
+         function goUserCenter() {
+            var params = {'method': 'ffgousercenter'};
+            ffbridgesend(params);
+         }
+         
+         /*进入充值中心*/
+         function goRecharge() {
+            var params = {'method': 'ffgorecharge'};
+            ffbridgesend(params);
+         }
+
+         /*进入账户中心*/
+         function goUserAccount() {
+            var params = {'method': 'ffgouseraccount'};
+            ffbridgesend(params);
+         }
+
+         /*进入购物车*/
+         function goShipCar() {
+            var params = {'method': 'ffgoshipcar'};
+            ffbridgesend(params);
+         }
+         
+         /*进入积分*/
+         function goPoint() {
+            var params = {'method': 'ffgopoint'};
+            ffbridgesend(params);
+         }
+
+         /*进入红包*/
+         function goCoupons() {
+            var params = {'method': 'ffgocoupons'};
+            ffbridgesend(params);
+         }
+         
+         /*进入web*/
+         function goWeb() {
+             var params = {'method': 'ffgoweb',"webUrl": "http://www.baidu.com"};
+            ffbridgesend(params);
+         }
+
+
+         /*进入分类列表*/
+         function goProductList() {
+            var params = {'method': 'ffgoproductlist',"categoryid":"3"};
+            ffbridgesend(params);
+         }
+         
+         /*进入产品详情*/
+         function goProductPage() {
+            var params = {'method': 'ffgoproductpage',"productid":"3"};
+            ffbridgesend(params);
+         }
+         
+         /*登录*/
+         function goLogin() {
+            var params = {'method': 'ffgologin'};
+            ffbridgesend(params);
+         }
+
+         /*退出登录*/
+         function goLogout() {
+            var params = {'method': 'ffgologout'};
+            ffbridgesend(params);
+         }
+
+         /*添加购物车*/
+         function addShipcar() {
+            var params = {'method': 'ffaddshipcar','productid':'3'};
+            ffbridgesend(params);
+         }
+         
+         /*分享链接给微信好友*/
+         function shareLinktowechatfriend() {
+            var params = {'method': 'ffsharelinktowechatfriend','sharetitle':'微信link分享标题','sharedes':'微信分享描述','shareiconurl':'https://www.baidu.com/img/bd_logo1.png','sharelink':'http://www.freshfresh.com'};
+            ffbridgesend(params);
+         }
+        
+         /*分享链接给微信朋友圈*/
+         function shareLinktowechatfriendgroup() {
+            var params = {'method': 'ffsharelinktowechatfriendgroup','sharetitle':'微信link分享标题','sharedes':'微信分享描述','shareiconurl':'https://www.baidu.com/img/bd_logo1.png','sharelink':'http://www.freshfresh.com'};
+            ffbridgesend(params);
+         }
+         
+
+         /*分享图片给微信好友*/
+         function shareImagetowechatfriend() {
+            var params = {'method': 'ffshareimagetowechatfriend','sharetitle':'微信link分享标题','sharedes':'微信分享描述','shareimgurl':'https://www.baidu.com/img/bd_logo1.png'};
+            ffbridgesend(params);
+         }
+         
+         /*分享图片给微信朋友圈*/
+         function shareImagetowechatfriendgroup() {
+            var params = {'method': 'ffshareimagetowechatfriendgroup','sharetitle':'微信link分享标题','sharedes':'微信分享描述','shareimgurl':'https://www.baidu.com/img/bd_logo1.png'};
+            ffbridgesend(params);
+         }
+
+         /*微信支付*/
+         function payBywechat() {
+            var params = {'method': 'ffpaybywechat','payfee':'1','ordernum':'21929289892381','paydes':'微信团购支付','notify_url':'http://www.baidu.com'};
+            ffbridgesend(params);
+         }
+
+         
+         /*h5 msg alert*/
+         function alertMsg() {
+            var params = {'method': 'ffalertmsg','msg':'h5 alert msg'};
+            ffbridgesend(params);
+         }
+
+         // js 和 native 交互的总方法
+         
+         function ffbridgesend(params) {
+            // alert(params)
+            window.webkit.messageHandlers.ffbridgesend.postMessage(params)
+         }
+
+        // native 通知 js 事件处理
+        function ffbridgeaccept(paramsStr) {
+            //document.getElementById('home').innerHTML = '成功获取ios设备信息'+paramsStr;
+            ffNativeMethodHandle(paramsStr);
+        }
+        
+        function ffNativeMethodHandle(paramsStr) {
+            var nativeInfo = JSON.parse(paramsStr)
+            alert(paramsStr);
+            if (nativeInfo['method'] == 'deviceinfo') {
+                deviceInfo = nativeInfo;
+                document.getElementById('home').innerHTML = '成功获取ios设备信息';
+            } else if(nativeInfo['method'] == 'sharesuc') {
+                document.getElementById('home').innerHTML = '分享成功';
+            } else if(nativeInfo['method'] == 'loginsuc') {
+                document.getElementById('home').innerHTML = '登录成功';
+            } else if(nativeInfo['method'] == 'logininfo') {
+                document.getElementById('home').innerHTML = '登录信息';
+            }
+        }
+        
+        </script>
+    </head>
+
+    <!--网页具体内容-->
+    <body>
+        </br>
+        <div id='buttons'>
+            <div id="home"></div>
+            </br>
+            </br>
+
+
+            <button type="button" id="ffgohome" onclick="goHome()">首页</button>
+            </br>
+            <button type="button" id="ffgocategory" onclick="goCategory()">分类</button>
+            </br>
+            <button type="button" id="ffgroupon" onclick="goGroupOn()">团购</button>
+            </br>
+            <button type="button" id="ffusercenter" onclick="goUserCenter()">我的两鲜</button>
+            
+            </br>
+            </br>
+            <button type="button" id="ffgorecharge" onclick="goRecharge()">充值中心</button>
+            </br>
+            <button type="button" id="ffgouseraccount" onclick="goUserAccount()">账户中心</button>
+            </br>
+            <button type="button" id="ffgoshipcar" onclick="goShipCar()">购物车</button>
+            </br>
+            <button type="button" id="ffgopoint" onclick="goPoint()">积分</button>
+            </br>
+            <button type="button" id="ffgocoupons" onclick="goCoupons()">红包</button>
+            </br>
+            <button type="button" id="ffgoweb" onclick="goWeb()">web</button>
+            
+            </br>
+            </br>
+            </br>
+            <button type="button" id="ffgoproductlist" onclick="goProductList()">分类列表</button>
+            </br>
+            <button type="button" id="ffgoproductpage" onclick="goProductPage()">产品详情</button>
+            
+            </br>
+            </br>
+            <button type="button" id="ffgologin" onclick="goLogin()">登录</button>
+            </br>
+            <button type="button" id="ffgologout" onclick="goLogout()">退出登录</button>
+            </br>
+            <button type="button" id="ffaddshipcar" onclick="addShipcar()">添加购物车</button>
+            
+            </br>
+            </br>
+            <button type="button" id="ffsharelinktowechatfriend" onclick="shareLinktowechatfriend()">分享链接给微信好友</button>
+            </br>
+            <button type="button" id="ffsharelinktowechatfriendgroup" onclick="shareLinktowechatfriendgroup()">分享链接给微信朋友圈</button>
+            </br>
+            <button type="button" id="ffshareimagetowechatfriend" onclick="shareImagetowechatfriend()">分享图片给微信好友</button>
+            <button type="button" id="ffshareimagetowechatfriendgroup" onclick="shareImagetowechatfriendgroup()">分享图片给微信朋友圈</button>
+            
+            </br>
+            </br>
+            <button type="button" id="ffpaybywechat" onclick="payBywechat()">微信支付</button>
+            
+            </br>
+            </br>
+            <button type="button" id="ffalertmsg" onclick="alertMsg()">alert消息</button>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,546 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+            <style type='text/css'>
+                button { margin:0 3px 10px; font-size:12px; }
+                </style>
+            </head>
+    <body>
+        <h1>FFWebBridgeDemo</h1>
+        <script>
+        var deviceInfo
+        
+        <!-- 初始化设备信息的相关方法-->
+        window.onload =  function(){
+            deviceInfo = JSON.parse(window.ffjsObj.ffgetdeviceinfo());
+            alert('接收android app事件成功成功,' + JSON.stringify(deviceInfo))
+            if(deviceInfo['device'] == 'android') {
+                androidJSmethod();
+            }
+        }
+        
+        function androidJSmethod() {
+            /*进入首页*/
+            var goHomeBtn = document.getElementById('ffgohome')
+            goHomeBtn.onclick = function(e){
+                e.preventDefault()
+                if(deviceInfo['device'] == 'android') {
+                    var params = {'method': 'ffgohome'};
+                    window.ffjsObj.ffbridgesend(JSON.stringify(params));
+                }
+            }
+            
+            /*进入分类*/
+            var gocategoryBtn = document.getElementById('ffgocategory')
+            gocategoryBtn.onclick = function(e) {
+                e.preventDefault()
+                if(deviceInfo['device'] == 'android') {
+                    var params = {'method': 'ffgocategory'};
+                    window.ffjsObj.ffbridgesend(JSON.stringify(params));
+                }
+            }
+            
+            /*进入闪电送*/
+            var goflashbuyBtn = document.getElementById('ffflashbuy')
+            goflashbuyBtn.onclick = function(e) {
+                e.preventDefault()
+                if(deviceInfo['device'] == 'android') {
+                    var params = {'method': 'ffflashbuy'};
+                    window.ffjsObj.ffbridgesend(JSON.stringify(params));
+                }
+            }
+            
+            /*进入团购*/
+            var groupOnBtn = document.getElementById('ffgroupon')
+            groupOnBtn.onclick = function(e) {
+                e.preventDefault()
+                if(deviceInfo['device'] == 'android') {
+                    var params = {'method': 'ffgroupon'};
+                    window.ffjsObj.ffbridgesend(JSON.stringify(params));
+                }
+            }
+            
+            /*进入我的两鲜*/
+            var usercenterBtn = document.getElementById('ffusercenter')
+            usercenterBtn.onclick = function(e) {
+                e.preventDefault()
+                if(deviceInfo['device'] == 'android') {
+                    var params = {'method': 'ffusercenter'};
+                    window.ffjsObj.ffbridgesend(JSON.stringify(params));
+                }
+            }
+            
+            /*进入充值中心*/
+            var usercenterBtn = document.getElementById('ffgorecharge')
+            usercenterBtn.onclick = function(e) {
+                e.preventDefault()
+                if(deviceInfo['device'] == 'android') {
+                    var params = {'method': 'ffgorecharge'};
+                    window.ffjsObj.ffbridgesend(JSON.stringify(params));
+                }
+            }
+            
+            /*进入账户中心*/
+            var usercenterBtn = document.getElementById('ffgouseraccount')
+            usercenterBtn.onclick = function(e) {
+                e.preventDefault()
+                if(deviceInfo['device'] == 'android') {
+                    var params = {'method': 'ffgouseraccount'};
+                    window.ffjsObj.ffbridgesend(JSON.stringify(params));
+                }
+            }
+            
+            /*进入购物车*/
+            var usercenterBtn = document.getElementById('ffgoshipcar')
+            usercenterBtn.onclick = function(e) {
+                e.preventDefault()
+                if(deviceInfo['device'] == 'android') {
+                    var params = {'method': 'ffgoshipcar'};
+                    window.ffjsObj.ffbridgesend(JSON.stringify(params));
+                }
+            }
+            
+            /*进入积分*/
+            var usercenterBtn = document.getElementById('ffgopoint')
+            usercenterBtn.onclick = function(e) {
+                e.preventDefault()
+                if(deviceInfo['device'] == 'android') {
+                    var params = {'method': 'ffgoshipcar'};
+                    window.ffjsObj.ffbridgesend(JSON.stringify(params));
+                }
+            }
+            
+            /*进入红包*/
+            var usercenterBtn = document.getElementById('ffgocoupons')
+            usercenterBtn.onclick = function(e) {
+                e.preventDefault()
+                if(deviceInfo['device'] == 'android') {
+                    var params = {'method': 'ffgocoupons'};
+                    window.ffjsObj.ffbridgesend(JSON.stringify(params));
+                }
+            }
+            
+            /*进入web*/
+            var usercenterBtn = document.getElementById('ffgoweb')
+            usercenterBtn.onclick = function(e) {
+                e.preventDefault()
+                if(deviceInfo['device'] == 'android') {
+                    var params = {'method': 'ffgoweb'};
+                    window.ffjsObj.ffbridgesend(JSON.stringify(params));
+                }
+            }
+            
+            /*进入分类列表*/
+            var usercenterBtn = document.getElementById('ffgoproductlist')
+            usercenterBtn.onclick = function(e) {
+                e.preventDefault()
+                if(deviceInfo['device'] == 'android') {
+                    var params = {'method': 'ffgoproductlist',"categoryid":"3"};
+                    window.ffjsObj.ffbridgesend(JSON.stringify(params));
+                }
+            }
+            
+            /*进入产品详情*/
+            var usercenterBtn = document.getElementById('ffgoproductpage')
+            usercenterBtn.onclick = function(e) {
+                e.preventDefault()
+                if(deviceInfo['device'] == 'android') {
+                    var params = {'method': 'ffgoproductpage',"productid":"3"};
+                    window.ffjsObj.ffbridgesend(JSON.stringify(params));
+                }
+            }
+            
+            /*登录*/
+            var usercenterBtn = document.getElementById('ffgologin')
+            usercenterBtn.onclick = function(e) {
+                e.preventDefault()
+                if(deviceInfo['device'] == 'android') {
+                    var params = {'method': 'ffgologin'};
+                    window.ffjsObj.ffbridgesend(JSON.stringify(params));
+                }
+            }
+            
+            /*退出登录*/
+            var usercenterBtn = document.getElementById('ffgologout')
+            usercenterBtn.onclick = function(e) {
+                e.preventDefault()
+                if(deviceInfo['device'] == 'android') {
+                    var params = {'method': 'ffgologout'};
+                    window.ffjsObj.ffbridgesend(JSON.stringify(params));
+                }
+            }
+            
+            /*添加购物车*/
+            var usercenterBtn = document.getElementById('ffaddshipcar')
+            usercenterBtn.onclick = function(e) {
+                e.preventDefault()
+                if(deviceInfo['device'] == 'android') {
+                    var params = {'method': 'ffaddshipcar','productid':'3'};
+                    window.ffjsObj.ffbridgesend(JSON.stringify(params));
+                }
+            }
+            
+            /*分享链接给微信好友*/
+            var usercenterBtn = document.getElementById('ffsharelinktowechatfriend')
+            usercenterBtn.onclick = function(e) {
+                e.preventDefault()
+                if(deviceInfo['device'] == 'android') {
+                    var params = {'method': 'ffsharelinktowechatfriend','sharetitle':'微信link分享标题','sharedes':'微信分享描述','shareiconurl':'https://www.baidu.com/img/bd_logo1.png','sharelink':'http://www.freshfresh.com'};
+                    window.ffjsObj.ffbridgesend(JSON.stringify(params));
+                }
+            }
+            
+            /*分享链接给微信朋友圈*/
+            var usercenterBtn = document.getElementById('ffsharelinktowechatfriendgroup')
+            usercenterBtn.onclick = function(e) {
+                e.preventDefault()
+                if(deviceInfo['device'] == 'android') {
+                    var params = {'method': 'ffsharelinktowechatfriendgroup','sharetitle':'微信link分享标题','sharedes':'微信分享描述','shareiconurl':'https://www.baidu.com/img/bd_logo1.png','sharelink':'http://www.freshfresh.com'};
+                    window.ffjsObj.ffbridgesend(JSON.stringify(params));
+                }
+            }
+            
+            /*分享图片给微信好友*/
+            var usercenterBtn = document.getElementById('ffshareimagetowechatfriend')
+            usercenterBtn.onclick = function(e) {
+                e.preventDefault()
+                if(deviceInfo['device'] == 'android') {
+                    var params = {'method': 'ffshareimagetowechatfriend','sharetitle':'微信link分享标题','sharedes':'微信分享描述','shareimgurl':'https://www.baidu.com/img/bd_logo1.png'};
+                    window.ffjsObj.ffbridgesend(JSON.stringify(params));
+                }
+            }
+            
+            /*分享图片给微信朋友圈*/
+            var usercenterBtn = document.getElementById('ffshareimagetowechatfriendgroup')
+            usercenterBtn.onclick = function(e) {
+                e.preventDefault()
+                if(deviceInfo['device'] == 'android') {
+                    var params = {'method': 'ffshareimagetowechatfriendgroup','sharetitle':'微信link分享标题','sharedes':'微信分享描述','shareimgurl':'https://www.baidu.com/img/bd_logo1.png'};
+                    window.ffjsObj.ffbridgesend(JSON.stringify(params));
+                }
+            }
+            
+            /*微信支付*/
+            var usercenterBtn = document.getElementById('ffpaybywechat')
+            usercenterBtn.onclick = function(e) {
+                e.preventDefault()
+                if(deviceInfo['device'] == 'android') {
+                    var params = {'method': 'ffpaybywechat','payfee':'1','ordernum':'21929289892381','paydes':'微信团购支付','notify_url':'http://www.baidu.com'};
+                    window.ffjsObj.ffbridgesend(JSON.stringify(params));
+                }
+            }
+            
+            /*h5 msg alert*/
+            var usercenterBtn = document.getElementById('ffalertmsg')
+            usercenterBtn.onclick = function(e) {
+                e.preventDefault()
+                if(deviceInfo['device'] == 'android') {
+                    var params = {'method': 'ffalertmsg','msg':'h5 alert msg'};
+                    window.ffjsObj.ffbridgesend(JSON.stringify(params));
+                }
+            }
+        }
+        
+        
+        <!-- iOS 相关方法-->
+        window.onerror = function(err) {
+            log('window.onerror: ' + err)
+        }
+        
+        function function_name (argument) {
+            // body...
+        }
+        
+        function setupWebViewJavascriptBridge(callback) {
+            if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
+            if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
+            window.WVJBCallbacks = [callback];
+            var WVJBIframe = document.createElement('iframe');
+            WVJBIframe.style.display = 'none';
+            WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+            document.documentElement.appendChild(WVJBIframe);
+            setTimeout(function() { document.documentElement.removeChild(WVJBIframe) }, 0)
+        }
+        
+        function nativeinfoHandle(params) {
+            var nativeInfo = JSON.parse(params)
+            if (nativeInfo['method'] == 'deviceinfo') {
+                deviceInfo = nativeInfo;
+                alert('成功获取ios设备信息')
+            } else if(nativeInfo['method'] == 'sharesuc') {
+                alert('分享成功')
+            } else if(nativeInfo['method'] == 'loginsuc') {
+                alert('登录成功')
+            } else if(nativeInfo['method'] == 'logininfo') {
+                alert('登录信息')
+            }
+        }
+        
+        setupWebViewJavascriptBridge(function(bridge) {
+                                     var uniqueId = 1
+                                     /*--接收app的通知事件--*/
+                                     bridge.registerHandler('ffbridgeaccept', function(data, responseCallback) {
+                                                            alert('接收ios app事件成功成功,' + JSON.stringify(data))
+                                                            nativeinfoHandle(data)
+                                                            responseCallback(responseData)
+                                                            })
+                                     
+                                     /*进入首页*/
+                                     var goHomeBtn = document.getElementById('ffgohome')
+                                     goHomeBtn.onclick = function(e) {
+                                     e.preventDefault()
+                                     var params = {'method': 'ffgohome'};
+                                     bridge.callHandler('ffbridgesend', params, function(response) {
+                                                        log('app接收到事件了', response)
+                                                        })
+                                     }
+                                     /*进入分类*/
+                                     var gocategoryBtn = document.getElementById('ffgocategory')
+                                     gocategoryBtn.onclick = function(e) {
+                                     e.preventDefault()
+                                     var params = {'method': 'ffgocategory'};
+                                     bridge.callHandler('ffbridgesend', params, function(response) {
+                                                        log('app接收到事件了', response)
+                                                        })
+                                     }
+                                     /*进入闪电送*/
+                                     var goflashbuyBtn = document.getElementById('ffflashbuy')
+                                     goflashbuyBtn.onclick = function(e) {
+                                     e.preventDefault()
+                                     var params = {'method': 'ffgoflashbuy'};
+                                     bridge.callHandler('ffbridgesend', params, function(response) {
+                                                        log('app接收到事件了', response)
+                                                        })
+                                     }
+                                     /*进入团购*/
+                                     var groupOnBtn = document.getElementById('ffgroupon')
+                                     groupOnBtn.onclick = function(e) {
+                                     e.preventDefault()
+                                     var params = {'method': 'ffgogroupon'};
+                                     bridge.callHandler('ffbridgesend', params, function(response) {
+                                                        log('app接收到事件了', response)
+                                                        })
+                                     }
+                                     /*进入我的两鲜*/
+                                     var usercenterBtn = document.getElementById('ffusercenter')
+                                     usercenterBtn.onclick = function(e) {
+                                     e.preventDefault()
+                                     var params = {'method': 'ffgousercenter'};
+                                     bridge.callHandler('ffbridgesend', params, function(response) {
+                                                        log('app接收到事件了', response)
+                                                        })
+                                     }
+                                     
+                                     /*进入充值中心*/
+                                     var usercenterBtn = document.getElementById('ffgorecharge')
+                                     usercenterBtn.onclick = function(e) {
+                                     e.preventDefault()
+                                     var params = {'method': 'ffgorecharge'};
+                                     bridge.callHandler('ffbridgesend', params, function(response) {
+                                                        log('app接收到事件了', response)
+                                                        })
+                                     }
+                                     /*进入账户中心*/
+                                     var usercenterBtn = document.getElementById('ffgouseraccount')
+                                     usercenterBtn.onclick = function(e) {
+                                     e.preventDefault()
+                                     var params = {'method': 'ffgouseraccount'};
+                                     bridge.callHandler('ffbridgesend', params, function(response) {
+                                                        log('app接收到事件了', response)
+                                                        })
+                                     }
+                                     
+                                     /*进入购物车*/
+                                     var usercenterBtn = document.getElementById('ffgoshipcar')
+                                     usercenterBtn.onclick = function(e) {
+                                     e.preventDefault()
+                                     var params = {'method': 'ffgoshipcar'};
+                                     bridge.callHandler('ffbridgesend', params, function(response) {
+                                                        log('app接收到事件了', response)
+                                                        })
+                                     }
+                                     
+                                     /*进入积分*/
+                                     var usercenterBtn = document.getElementById('ffgopoint')
+                                     usercenterBtn.onclick = function(e) {
+                                     e.preventDefault()
+                                     var params = {'method': 'ffgopoint'};
+                                     bridge.callHandler('ffbridgesend', params, function(response) {
+                                                        log('app接收到事件了', response)
+                                                        })
+                                     }
+                                     
+                                     /*进入红包*/
+                                     var usercenterBtn = document.getElementById('ffgocoupons')
+                                     usercenterBtn.onclick = function(e) {
+                                     e.preventDefault()
+                                     var params = {'method': 'ffgocoupons'};
+                                     bridge.callHandler('ffbridgesend', params, function(response) {
+                                                        log('app接收到事件了', response)
+                                                        })
+                                     }
+                                     
+                                     /*进入web*/
+                                     var usercenterBtn = document.getElementById('ffgoweb')
+                                     usercenterBtn.onclick = function(e) {
+                                     e.preventDefault()
+                                     var params = {'method': 'ffgoweb',"webUrl": "http://www.baidu.com"};
+                                     bridge.callHandler('ffbridgesend', params, function(response) {
+                                                        log('app接收到事件了', response)
+                                                        })
+                                     }
+                                     
+                                     /*进入分类列表*/
+                                     var usercenterBtn = document.getElementById('ffgoproductlist')
+                                     usercenterBtn.onclick = function(e) {
+                                     e.preventDefault()
+                                     var params = {'method': 'ffgoproductlist',"categoryid":"3"};
+                                     bridge.callHandler('ffbridgesend', params, function(response) {
+                                                        log('app接收到事件了', response)
+                                                        })
+                                     }
+                                     
+                                     /*进入产品详情*/
+                                     var usercenterBtn = document.getElementById('ffgoproductpage')
+                                     usercenterBtn.onclick = function(e) {
+                                     e.preventDefault()
+                                     var params = {'method': 'ffgoproductpage',"productid":"3"};
+                                     bridge.callHandler('ffbridgesend', params, function(response) {
+                                                        log('app接收到事件了', response)
+                                                        })
+                                     }
+                                     
+                                     
+                                     /*登录*/
+                                     var usercenterBtn = document.getElementById('ffgologin')
+                                     usercenterBtn.onclick = function(e) {
+                                     e.preventDefault()
+                                     var params = {'method': 'ffgologin'};
+                                     bridge.callHandler('ffbridgesend', params, function(response) {
+                                                        log('app接收到事件了', response)
+                                                        })
+                                     }
+                                     
+                                     /*退出登录*/
+                                     var usercenterBtn = document.getElementById('ffgologout')
+                                     usercenterBtn.onclick = function(e) {
+                                     e.preventDefault()
+                                     var params = {'method': 'ffgologout'};
+                                     bridge.callHandler('ffbridgesend', params, function(response) {
+                                                        log('app接收到事件了', response)
+                                                        })
+                                     }
+                                     /*添加购物车*/
+                                     var usercenterBtn = document.getElementById('ffaddshipcar')
+                                     usercenterBtn.onclick = function(e) {
+                                     e.preventDefault()
+                                     var params = {'method': 'ffaddshipcar','productid':'3'};
+                                     bridge.callHandler('ffbridgesend', params, function(response) {
+                                                        log('app接收到事件了', response)
+                                                        })
+                                     }
+                                     
+                                     /*分享链接给微信好友*/
+                                     var usercenterBtn = document.getElementById('ffsharelinktowechatfriend')
+                                     usercenterBtn.onclick = function(e) {
+                                     e.preventDefault()
+                                     var params = {'method': 'ffsharelinktowechatfriend','sharetitle':'微信link分享标题','sharedes':'微信分享描述','shareiconurl':'https://www.baidu.com/img/bd_logo1.png','sharelink':'http://www.freshfresh.com'};
+                                     bridge.callHandler('ffbridgesend', params, function(response) {
+                                                        log('app接收到事件了', response)
+                                                        })
+                                     }
+                                     
+                                     /*分享链接给微信朋友圈*/
+                                     var usercenterBtn = document.getElementById('ffsharelinktowechatfriendgroup')
+                                     usercenterBtn.onclick = function(e) {
+                                     e.preventDefault()
+                                     var params = {'method': 'ffsharelinktowechatfriendgroup','sharetitle':'微信link分享标题','sharedes':'微信分享描述','shareiconurl':'https://www.baidu.com/img/bd_logo1.png','sharelink':'http://www.freshfresh.com'};
+                                     bridge.callHandler('ffbridgesend', params, function(response) {
+                                                        log('app接收到事件了', response)
+                                                        })
+                                     }
+                                     
+                                     /*分享图片给微信好友*/
+                                     var usercenterBtn = document.getElementById('ffshareimagetowechatfriend')
+                                     usercenterBtn.onclick = function(e) {
+                                     e.preventDefault()
+                                     var params = {'method': 'ffshareimagetowechatfriend','sharetitle':'微信link分享标题','sharedes':'微信分享描述','shareimgurl':'https://www.baidu.com/img/bd_logo1.png'};
+                                     bridge.callHandler('ffbridgesend', params, function(response) {
+                                                        log('app接收到事件了', response)
+                                                        })
+                                     }
+                                     
+                                     /*分享图片给微信朋友圈*/
+                                     var usercenterBtn = document.getElementById('ffshareimagetowechatfriendgroup')
+                                     usercenterBtn.onclick = function(e) {
+                                     e.preventDefault()
+                                     var params = {'method': 'ffshareimagetowechatfriendgroup','sharetitle':'微信link分享标题','sharedes':'微信分享描述','shareimgurl':'https://www.baidu.com/img/bd_logo1.png'};
+                                     bridge.callHandler('ffbridgesend', params, function(response) {
+                                                        log('app接收到事件了', response)
+                                                        })
+                                     }
+                                     
+                                     /*微信支付*/
+                                     var usercenterBtn = document.getElementById('ffpaybywechat')
+                                     usercenterBtn.onclick = function(e) {
+                                     e.preventDefault()
+                                     var params = {'method': 'ffpaybywechat','payfee':'1','ordernum':'21929289892381','paydes':'微信团购支付','notify_url':'http://www.baidu.com'};
+                                     bridge.callHandler('ffbridgesend', params, function(response) {
+                                                        log('app接收到事件了', response)
+                                                        })
+                                     }
+                                     
+                                     /*h5 msg alert*/
+                                     var usercenterBtn = document.getElementById('ffalertmsg')
+                                     usercenterBtn.onclick = function(e) {
+                                     e.preventDefault()
+                                     var params = {'method': 'ffalertmsg','msg':'h5 alert msg'};
+                                     bridge.callHandler('ffbridgesend', params, function(response) {
+                                                        log('app接收到事件了', response)
+                                                        })
+                                     }
+                                     })
+            </script>
+        <div id='buttons'>
+            <button type="button" id="ffgohome">首页</button>
+            <button type="button" id="ffgocategory">分类</button>
+            <button type="button" id="ffflashbuy">闪电送</button>
+            <button type="button" id="ffgroupon">团购</button>
+            <button type="button" id="ffusercenter">我的两鲜</button>
+            
+            </br>
+            
+            <button type="button" id="ffgorecharge">充值中心</button>
+            <button type="button" id="ffgouseraccount">账户中心</button>
+            <button type="button" id="ffgoshipcar">购物车</button>
+            <button type="button" id="ffgopoint">积分</button>
+            <button type="button" id="ffgocoupons">红包</button>
+            <button type="button" id="ffgomylove">最爱</button>
+            <button type="button" id="ffgoweb">web</button>
+            
+            </br>
+            
+            <button type="button" id="ffgoproductlist">分类列表</button>
+            <button type="button" id="ffgoproductpage">产品详情</button>
+            
+            </br>
+            
+            <button type="button" id="ffgologin">登录</button>
+            <button type="button" id="ffgologout">退出登录</button>
+            <button type="button" id="ffaddshipcar">添加购物车</button>
+            
+            </br>
+            <button type="button" id="ffsharelinktowechatfriend">分享链接给微信好友</button>
+            <button type="button" id="ffsharelinktowechatfriendgroup">分享链接给微信朋友圈</button>
+            <button type="button" id="ffshareimagetowechatfriend">分享图片给微信好友</button>
+            <button type="button" id="ffshareimagetowechatfriendgroup">分享图片给微信朋友圈</button>
+            
+            </br>
+            <button type="button" id="ffpaybywechat">微信支付</button>
+            
+            </br>
+            <button type="button" id="ffalertmsg">alert消息</button>
+            
+        </div>
+    </body></html>
